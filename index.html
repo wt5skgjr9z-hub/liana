@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моей любимой Лиане ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d0814;
+            --card-bg: #1a0f26;
+            --accent-pink: #ff4b72;
+            --accent-gold: #f3be7a;
+            --text-main: #f8fafc;
+            --text-muted: #b3a2c7;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            padding: 20px 15px 50px;
+            max-width: 650px;
+            margin: 0 auto;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Анимация падающих/летающих сердечек */
+        .heart-bg {
+            position: fixed;
+            top: -10px;
+            color: var(--accent-pink);
+            opacity: 0.3;
+            font-size: 1.2rem;
+            animation: fall linear infinite;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(105vh) rotate(360deg);
+            }
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 10px 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            background: rgba(255, 75, 114, 0.15);
+            color: var(--accent-pink);
+            border: 1px solid rgba(255, 75, 114, 0.4);
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            display: inline-block;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            color: var(--accent-gold);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            font-weight: 300;
+        }
+
+        /* Фото блок */
+        .photo-card {
+            position: relative;
+            z-index: 1;
+            margin-top: 25px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 12px;
+            border: 1px solid rgba(243, 190, 122, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 14px;
+            display: block;
+            object-fit: cover;
+        }
+
+        .photo-caption {
+            margin-top: 12px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--accent-gold);
+        }
+
+        /* Карточки */
+        .card {
+            position: relative;
+            z-index: 1;
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 24px;
+            margin-top: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.7rem;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Счетчики */
+        .timer-box {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .timer-unit {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 75, 114, 0.2);
+            padding: 12px 5px;
+            border-radius: 12px;
+        }
+
+        .timer-num {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent-pink);
+            display: block;
+        }
+
+        .timer-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        /* Признание в любви */
+        .love-text {
+            font-size: 1rem;
+            color: #e2d8ee;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .highlight-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            font-style: italic;
+            color: var(--accent-gold);
+            border-left: 3px solid var(--accent-pink);
+            padding-left: 15px;
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+
+        /* Кнопка */
+        .btn-love {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            background: linear-gradient(135deg, #ff4b72, #e02851);
+            color: #ffffff;
+            border: none;
+            padding: 18px;
+            border-radius: 16px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-top: 30px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(255, 75, 114, 0.4);
+            transition: transform 0.2s;
+        }
+
+        .btn-love:active {
+            transform: scale(0.97);
+        }
+
+        /* Секретный блок */
+        #secret-message {
+            display: none;
+            animation: popup 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(243, 190, 122, 0.4);
+        }
+
+        @keyframes popup {
+            from { opacity: 0; transform: scale(0.9) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            margin-top: 40px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <span class="badge">Для моей любимой жены</span>
+        <h1>Лиана, ты вся моя жизнь ❤️</h1>
+        <p class="subtitle">Сайт, созданный в знак бесконечной любви к тебе</p>
+    </header>
+
+    <!-- Ваше свадебное фото -->
+    <div class="photo-card">
+        <img src="photo.jpg" alt="Наша свадьба">
+        <div class="photo-caption">«Самый счастливый день, когда ты стала моей женой»</div>
+    </div>
+
+    <!-- Счетчик №1: Встречаемся -->
+    <div class="card">
+        <div class="card-title">
+            <span>✨</span> Мы вместе уже:
+        </div>
+        <p style="font-size: 0.9rem; color: var(--text-muted);">С того самого дня — 9 апреля 2025 года:</p>
+        <div class="timer-box" id="timer-dating">
+            <div class="timer-unit"><span class="timer-num" id="d-days">0</span><span class="timer-label">дней</span></div>
+            <div class="timer-unit"><span class="timer-num" id="d-hours">0</span><span class="timer-label">часов</span></div>
+            <div class="timer-unit"><span class="timer-num" id="d-mins">0</span><span class="timer-label">минут</span></div>
+            <div class="timer-unit"><span class="timer-num" id="d-secs">0</span><span class="timer-label">секунд</span></div>
+        </div>
+    </div>
+
+    <!-- Счетчик №2: Поженились -->
+    <div class="card">
+        <div class="card-title">
+            <span>💍</span> Нашей семье уже:
+        </div>
+        <p style="font-size: 0.9rem; color: var(--text-muted);">С момента нашей свадьбы — 13 августа в 14:55:</p>
+        <div class="timer-box" id="timer-wedding">
+            <div class="timer-unit"><span class="timer-num" id="w-days">0</span><span class="timer-label">дней</span></div>
+            <div class="timer-unit"><span class="timer-num" id="w-hours">0</span><span class="timer-label">часов</span></div>
+            <div class="timer-unit"><span class="timer-num" id="w-mins">0</span><span class="timer-label">минут</span></div>
+            <div class="timer-unit"><span class="timer-num" id="w-secs">0</span><span class="timer-label">секунд</span></div>
+        </div>
+    </div>
+
+    <!-- Письмо с признанием -->
+    <div class="card">
+        <div class="card-title">
+            <span>💌</span> Моё обещание тебе
+        </div>
+        <div class="love-text">
+            Лиана, встреча с тобой изменила мою жизнь навсегда. С 9 апреля, когда мы стали парой, и с 13 августа, когда ты надела это кольцо и стала моей женой, я каждый день благодарю судьбу за тебя.
+        </div>
+        <div class="highlight-quote">
+            «Я хочу проходить этот путь с тобой рука об руку, делить все радости и трудности, беречь тебя и любить до самого моего последнего вздоха.»
+        </div>
+        <div class="love-text">
+            Ты — мое вдохновение, моя поддержка и самый родной человек на этой планете. Моя любовь к тебе не имеет границ и будет расти с каждым прошедшим днём.
+        </div>
+    </div>
+
+    <!-- Секретная кнопка -->
+    <button class="btn-love" onclick="openSecret()">Лиана, нажми сюда 💖</button>
+
+    <!-- Секретное сообщение -->
+    <div id="secret-message" class="card">
+        <div class="card-title" style="justify-content: center; color: var(--accent-pink);">
+            <span>♾️</span> Ты и Я — Навсегда
+        </div>
+        <p style="text-align: center; font-size: 1.1rem; color: #fff; font-weight: 600;">
+            Люблю тебя больше жизни! <br><br>
+            Спасибо, что ты моя жена. Мы будем вместе до самой смерти, и даже вечность — это только начало нашей истории. 💖
+        </p>
+    </div>
+
+    <footer>
+        Создано с бесконечной любовью для моей жены Лианы ❤️
+    </footer>
+
+    <script>
+        // Даты
+        const datingDate = new Date('2025-04-09T00:00:00');
+        const weddingDate = new Date('2025-08-13T14:55:00');
+
+        function updateTimers() {
+            const now = new Date();
+
+            // Функция расчета времени
+            function calcTime(startDate) {
+                let diff = now - startDate;
+                if (diff < 0) diff = 0; // если дата в будущем
+
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                const minutes = Math.floor((diff / 1000 / 60) % 60);
+                const seconds = Math.floor((diff / 1000) % 60);
+
+                return { days, hours, minutes, seconds };
+            }
+
+            // Счетчик 1
+            const d = calcTime(datingDate);
+            document.getElementById('d-days').innerText = d.days;
+            document.getElementById('d-hours').innerText = d.hours;
+            document.getElementById('d-mins').innerText = d.minutes;
+            document.getElementById('d-secs').innerText = d.seconds;
+
+            // Счетчик 2
+            const w = calcTime(weddingDate);
+            document.getElementById('w-days').innerText = w.days;
+            document.getElementById('w-hours').innerText = w.hours;
+            document.getElementById('w-mins').innerText = w.minutes;
+            document.getElementById('w-secs').innerText = w.seconds;
+        }
+
+        setInterval(updateTimers, 1000);
+        updateTimers();
+
+        // Открытие секретного сообщения
+        function openSecret() {
+            const msg = document.getElementById('secret-message');
+            msg.style.display = 'block';
+            msg.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Анимация сердечек на фоне
+        function createHearts() {
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart-bg');
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                heart.style.fontSize = (Math.random() * 10 + 12) + 'px';
+                document.body.appendChild(heart);
+            }
+        }
+        createHearts();
+    </script>
+</body>
+</html>
