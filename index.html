@@ -264,7 +264,7 @@
         <div class="card-title">
             <span>💍</span> Нашей семье уже:
         </div>
-        <p style="font-size: 0.9rem; color: var(--text-muted);">С момента нашей свадьбы — 13 августа в 14:55:</p>
+        <p style="font-size: 0.9rem; color: var(--text-muted);">С момента нашей свадьбы — 13 августа 2026 в 14:55:</p>
         <div class="timer-box" id="timer-wedding">
             <div class="timer-unit"><span class="timer-num" id="w-days">0</span><span class="timer-label">дней</span></div>
             <div class="timer-unit"><span class="timer-num" id="w-hours">0</span><span class="timer-label">часов</span></div>
@@ -310,7 +310,7 @@
     <script>
         // Даты
         const datingDate = new Date('2025-04-09T00:00:00');
-        const weddingDate = new Date('2025-08-13T14:55:00');
+        const weddingDate = new Date('2026-08-13T14:55:00');
 
         function updateTimers() {
             const now = new Date();
@@ -328,14 +328,14 @@
                 return { days, hours, minutes, seconds };
             }
 
-            // Счетчик 1
+            // Счетчик 1: Встречаемся
             const d = calcTime(datingDate);
             document.getElementById('d-days').innerText = d.days;
             document.getElementById('d-hours').innerText = d.hours;
             document.getElementById('d-mins').innerText = d.minutes;
             document.getElementById('d-secs').innerText = d.seconds;
 
-            // Счетчик 2
+            // Счетчик 2: Поженились
             const w = calcTime(weddingDate);
             document.getElementById('w-days').innerText = w.days;
             document.getElementById('w-hours').innerText = w.hours;
